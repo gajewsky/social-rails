@@ -13,9 +13,33 @@ gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap
 gem 'simple_form'
 gem 'devise'
 gem 'haml-rails'
+gem 'rubocop'
 
-group :development, :test do
+group :development do
+  gem 'sqlite3'
+  gem 'dotenv-rails'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'better_errors', '~> 2.1.1'
+  gem 'pry'
+  gem 'rubocop', require: false
+  gem 'annotate', '~> 2.6.6'
+end
+
+group :test do
+  gem 'faker'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'selenium-webdriver', '~> 2.45.0'
+  gem 'shoulda-matchers', '~> 2.8.0'
+  gem 'simplecov', require: false
+end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
 end
