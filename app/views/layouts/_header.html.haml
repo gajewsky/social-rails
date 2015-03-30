@@ -22,7 +22,7 @@
               %span.caret
             %ul.dropdown-menu{:role => "menu"}
               %li
-                %a{:href => "#"} Profile
+                = link_to 'Profile', user_path(current_user.username)
               %li
                 %a{:href => "#"} Friend
               %li
