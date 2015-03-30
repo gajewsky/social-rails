@@ -2,7 +2,7 @@
   .container
     .row
       .col-md-4
-        = image_tag @user.avatar.url(:original), class: "img-responsive"
+        = image_tag @user.avatar.url(:original), width: '200', class: "img-responsive"
       .col-md-4
         %h3
           = @user.username

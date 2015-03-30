@@ -1,0 +1,7 @@
+.col-md-3
+  .thumbnail
+    = link_to user_path(user.username) do
+      = image_tag user.avatar.url, width: '300'
+      .caption
+        %h3
+          = user.username

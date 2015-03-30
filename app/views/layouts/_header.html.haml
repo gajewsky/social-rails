@@ -13,7 +13,7 @@
         %li
           %a{:href => "#"} Timeline
         %li
-          %a{:href => "#"} People
+          = link_to 'People', users_path
         - if current_user
           %li.dropdown
             %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
