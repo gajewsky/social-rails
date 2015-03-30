@@ -16,7 +16,7 @@ class Friendship < ActiveRecord::Base
   belongs_to :friend, class_name: 'User'
 
   def accept_friendship
-    update(state: 'ative', friended_at: Time.now)
+    update(state: 'active', friended_at: Time.now)
   end
 
   def deny_friendship

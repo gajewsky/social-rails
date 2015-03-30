@@ -43,4 +43,35 @@ class User < ActiveRecord::Base
   def request_friendship(user)
     friendships.create(friend: user)
   end
+
+  def pending_friend_requests_from
+    self.inverse_friendships.where(state: "pending")
+  end
+
+  def pending_friend_requests_to
+    self.friendships.where(state: "pending")
+  end
+
+  def active_friends
+    self.friendships.where(state: "active").map(&:friend) 
+      + self.inverse_friendships.where(state: "active").map(&:user)
+  end
+
+  def friendship_status(user)
+    friendship = Friendship.where(
+      user_id: [self.id, user.id],
+      friend_id: [self.id, user.id]
+    )
+    unless friendship.any?
+      return 'not_friends'
+    else
+      if friendship.first.state == 'active'
+        return 'friends'
+      elsif friendship.first.user == self
+        return 'pending'
+      else
+        return 'requested'
+      end
+    end
+  end
 end
