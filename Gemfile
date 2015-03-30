@@ -14,6 +14,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'haml-rails'
 gem 'rubocop'
+gem "paperclip", "~> 4.2"
 
 group :development do
   gem 'sqlite3'

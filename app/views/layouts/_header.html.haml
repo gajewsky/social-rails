@@ -30,6 +30,8 @@
               %li.divider
               %li
                 = link_to 'Logout', destroy_user_session_path, method: :delete
+          %li 
+            = image_tag current_user.avatar.url, width:'60', class: 'img-circle'
         - else      
           %li
             = link_to 'Login', new_user_session_path 

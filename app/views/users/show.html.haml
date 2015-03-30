@@ -2,12 +2,12 @@
   .container
     .row
       .col-md-4
-        / = @user.avatar
+        = image_tag @user.avatar.url(:original), class: "img-responsive"
       .col-md-4
         %h3
           = @user.username
-        %p Age: 20
-        %p Gender
+        %p Age: #{@user.age}
+        %p Gender #{@user.gender}
       .col-md-4
         %h3 Who am I
-        %small Bio
+        %small #{@user.bio}
